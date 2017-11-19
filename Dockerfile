@@ -73,4 +73,6 @@ COPY influxdb/init.sh /etc/init.d/influxdb
 # Configure Grafana
 COPY grafana/grafana.ini /etc/grafana/grafana.ini
 
+RUN chmod 0755 /etc/init.d/influxdb
+
 CMD ["/usr/bin/supervisord"]
