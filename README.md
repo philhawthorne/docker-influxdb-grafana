@@ -1,6 +1,6 @@
 # Docker Image with InfluxDB and Grafana
 
-This is a Docker image based on the awesome [Docker Image with Telegraf (StatsD), InfluxDB and Grafana]((https://github.com/samuelebistoletti/docker-statsd-influxdb-grafana) from [Samuele Bistoletti](https://github.com/samuelebistoletti).
+This is a Docker image based on the awesome [Docker Image with Telegraf (StatsD), InfluxDB and Grafana](https://github.com/samuelebistoletti/docker-statsd-influxdb-grafana) from [Samuele Bistoletti](https://github.com/samuelebistoletti).
 
 The main point of difference with this image is:
 
@@ -10,6 +10,8 @@ The main point of difference with this image is:
 
 The main purpose of this image is to be used to show data from a [Home Assistant](https://home-assistant.io) installation. For more information on how to do that, please see my website about how I use this container.
 
+| Description  | Value |
+|--------------|-------|
 | Docker Image | 2.0.0 |
 | Ubuntu       | 16.04 |
 | InfluxDB     | 1.2   |
