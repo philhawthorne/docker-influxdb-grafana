@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 MAINTAINER Phil Hawthorne <me@philhawthorne.com>
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -24,7 +24,8 @@ RUN rm /var/lib/apt/lists/* -vf
 # Base dependencies
 RUN apt-get -y update && \
  apt-get -y dist-upgrade && \
- apt-get -y --force-yes install \
+ apt-get -y install \
+  build-essential \
   apt-utils \
   ca-certificates \
   curl \
@@ -35,9 +36,11 @@ RUN apt-get -y update && \
   net-tools \
   openssh-server \
   supervisor \
+  gnupg2 \
   wget && \
- curl -sL https://deb.nodesource.com/setup_7.x | bash - && \
- apt-get install -y nodejs
+  wget -qO- https://deb.nodesource.com/setup_10.x | bash - && \
+  apt-get install -y nodejs && \
+  npm install npm@latest
 
 WORKDIR /root
 
@@ -54,7 +57,7 @@ RUN wget https://dl.influxdata.com/influxdb/releases/influxdb_${INFLUXDB_VERSION
     dpkg -i influxdb_${INFLUXDB_VERSION}_amd64.deb && rm influxdb_${INFLUXDB_VERSION}_amd64.deb
 
 # Install Grafana
-RUN wget https://grafanarel.s3.amazonaws.com/builds/grafana_${GRAFANA_VERSION}_amd64.deb && \
+RUN wget https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana_${GRAFANA_VERSION}_amd64.deb && \
     dpkg -i grafana_${GRAFANA_VERSION}_amd64.deb && rm grafana_${GRAFANA_VERSION}_amd64.deb
 
 # Cleanup
