@@ -14,9 +14,9 @@ The main purpose of this image is to be used to show data from a [Home Assistant
 |--------------|---------|
 | Docker Image | 2.0.0   |
 | Ubuntu       | 18.04   |
-| InfluxDB     | 1.5.2   |
+| InfluxDB     | 1.6.3   |
 | ChronoGraf   | 1.4.4.2 |
-| Grafana      | 5.1.0   |
+| Grafana      | 5.3.0   |
 
 ## Quick Start
 
@@ -28,7 +28,6 @@ docker run -d \
   -p 3003:3003 \
   -p 3004:8888 \
   -p 8086:8086 \
-  -p 22022:22 \
   -v /path/for/influxdb:/var/lib/influxdb \
   -v /path/for/grafana:/var/lib/grafana \
   philhawthorne/docker-influxdb-grafana:latest
@@ -54,14 +53,12 @@ Host		Container		Service
 3003		3003			grafana
 3004		8888			chronograf
 8086		8086			influxdb
-22022		22				sshd
 ```
 ## SSH
 
 ```sh
-ssh root@localhost -p 22022
+docker exec -it <CONTAINER_ID> bash
 ```
-Password: root
 
 ## Grafana
 
