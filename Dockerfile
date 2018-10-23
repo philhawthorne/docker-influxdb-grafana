@@ -44,12 +44,7 @@ RUN apt-get -y update && \
 WORKDIR /root
 
 RUN mkdir -p /var/log/supervisor && \
-    mkdir -p /var/run/sshd && \
-    sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config && \
-    echo 'root:root' | chpasswd && \
-    rm -rf .ssh && \
-    rm -rf .profile && \
-    mkdir .ssh
+    rm -rf .profile
 
 # Install InfluxDB
 RUN wget https://dl.influxdata.com/influxdb/releases/influxdb_${INFLUXDB_VERSION}_amd64.deb && \
@@ -67,9 +62,8 @@ RUN wget https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana_${G
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Configure Supervisord, SSH and base env
+# Configure Supervisord and base env
 COPY supervisord/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-COPY ssh/id_rsa .ssh/id_rsa
 COPY bash/profile .profile
 
 # Configure InfluxDB
