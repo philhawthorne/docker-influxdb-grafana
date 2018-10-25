@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM debian:stretch-slim
 MAINTAINER Phil Hawthorne <me@philhawthorne.com>
 
 ENV DEBIAN_FRONTEND noninteractive
