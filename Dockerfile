@@ -1,5 +1,5 @@
 FROM ubuntu:18.04
-MAINTAINER Phil Hawthorne <me@philhawthorne.com>
+LABEL maintainer="Phil Hawthorne <me@philhawthorne.com>"
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV LANG C.UTF-8
