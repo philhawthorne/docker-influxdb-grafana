@@ -31,7 +31,6 @@ RUN rm /var/lib/apt/lists/* -vf \
         libfontconfig \
         nano \
         net-tools \
-        openssh-server \
         supervisor \
         wget \
         gnupg \
