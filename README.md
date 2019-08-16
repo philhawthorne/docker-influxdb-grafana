@@ -19,7 +19,6 @@ The main purpose of this image is to be used to show data from a [Home Assistant
 
 | Description  | Value   |
 |--------------|---------|
-| Ubuntu       | 18.04   |
 | InfluxDB     | 1.7.7   |
 | ChronoGraf   | 1.7.12  |
 | Grafana      | 6.3.3   |
