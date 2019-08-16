@@ -1,5 +1,12 @@
 # Docker Image with InfluxDB and Grafana
 
+[![Docker Pulls](https://img.shields.io/docker/pulls/philhawthorne/docker-influxdb-grafana.svg)](https://dockerhub.com/philhawthorne/docker-influxdb-grafana) [![license](https://img.shields.io/github/license/philhawthorne/docker-influxdb-grafana.svg)](https://dockerhub.com/philhawthorne/docker-influxdb-grafana)
+
+![Grafana][grafana-version] ![Influx][influx-version] ![Chronograf][chronograf-version]
+
+[![Buy me a coffee][buymeacoffee-icon]][buymeacoffee]
+
+
 This is a Docker image based on the awesome [Docker Image with Telegraf (StatsD), InfluxDB and Grafana](https://github.com/samuelebistoletti/docker-statsd-influxdb-grafana) from [Samuele Bistoletti](https://github.com/samuelebistoletti).
 
 The main point of difference with this image is:
@@ -12,11 +19,10 @@ The main purpose of this image is to be used to show data from a [Home Assistant
 
 | Description  | Value   |
 |--------------|---------|
-| Docker Image | 2.0.0   |
 | Ubuntu       | 18.04   |
-| InfluxDB     | 1.6.3   |
-| ChronoGraf   | 1.4.4.2 |
-| Grafana      | 5.3.0   |
+| InfluxDB     | 1.7.7   |
+| ChronoGraf   | 1.7.12  |
+| Grafana      | 6.3.3   |
 
 ## Quick Start
 
@@ -83,7 +89,7 @@ Now you are ready to add your first dashboard and launch some queries on a datab
 
 ## InfluxDB
 
-### Web Interface
+### Web Interface (Chronograf)
 
 Open <http://localhost:3004>
 
@@ -97,3 +103,10 @@ Port: 8086
 
 1. Establish a ssh connection with the container
 2. Launch `influx` to open InfluxDB Shell (CLI)
+
+[buymeacoffee-icon]: https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-2.svg
+[buymeacoffee]: https://www.buymeacoffee.com/philhawthorne
+
+[grafana-version]: https://img.shields.io/badge/Grafana-6.3.3-brightgreen
+[influx-version]: https://img.shields.io/badge/Influx-1.7.7-brightgreen
+[chronograf-version]: https://img.shields.io/badge/Chronograf-1.7.12-brightgreen
