@@ -64,4 +64,6 @@ COPY grafana/grafana.ini /etc/grafana/grafana.ini
 
 RUN chmod 0755 /etc/init.d/influxdb
 
-CMD ["/usr/bin/supervisord"]
+COPY run.sh /run.sh
+
+CMD ["/run.sh"]
