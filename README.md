@@ -19,9 +19,9 @@ The main purpose of this image is to be used to show data from a [Home Assistant
 
 | Description  | Value   |
 |--------------|---------|
-| InfluxDB     | 1.7.7   |
-| ChronoGraf   | 1.7.12  |
-| Grafana      | 6.4.1   |
+| InfluxDB     | 1.7.8   |
+| ChronoGraf   | 1.7.14  |
+| Grafana      | 6.4.3   |
 
 ## Quick Start
 
@@ -106,6 +106,26 @@ Port: 8086
 [buymeacoffee-icon]: https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-2.svg
 [buymeacoffee]: https://www.buymeacoffee.com/philhawthorne
 
-[grafana-version]: https://img.shields.io/badge/Grafana-6.4.1-brightgreen
-[influx-version]: https://img.shields.io/badge/Influx-1.7.7-brightgreen
-[chronograf-version]: https://img.shields.io/badge/Chronograf-1.7.12-brightgreen
+[grafana-version]: https://img.shields.io/badge/Grafana-6.4.3-brightgreen
+[influx-version]: https://img.shields.io/badge/Influx-1.7.12-brightgreen
+[chronograf-version]: https://img.shields.io/badge/Chronograf-1.7.14-brightgreen
+
+### Enable InfluxDB Authentication
+
+File: /etc/influxdb/influxdb.conf
+
+```sh
+[http]
+  ...
+  # Determines whether user authentication is enabled over HTTP/HTTPS.
+  auth-enabled = true
+  ...
+```
+
+## Create user and Database using InfluxDB Shell (CLI)
+
+```sh
+CREATE USER "username" WITH PASSWORD 'password'
+CREATE DATABASE "database"
+GRANT ALL ON "username" TO "database"
+```
