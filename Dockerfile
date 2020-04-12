@@ -5,9 +5,9 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV LANG C.UTF-8
 
 # Default versions
-ENV INFLUXDB_VERSION=1.7.7
-ENV CHRONOGRAF_VERSION=1.7.12
-ENV GRAFANA_VERSION=6.4.1
+ENV INFLUXDB_VERSION=1.7.10
+ENV CHRONOGRAF_VERSION=1.7.17
+ENV GRAFANA_VERSION=6.5.3
 
 # Grafana database type
 ENV GF_DATABASE_TYPE=sqlite3
@@ -57,12 +57,9 @@ COPY bash/profile .profile
 
 # Configure InfluxDB
 COPY influxdb/influxdb.conf /etc/influxdb/influxdb.conf
-COPY influxdb/init.sh /etc/init.d/influxdb
 
 # Configure Grafana
 COPY grafana/grafana.ini /etc/grafana/grafana.ini
-
-RUN chmod 0755 /etc/init.d/influxdb
 
 COPY run.sh /run.sh
 RUN ["chmod", "+x", "/run.sh"]
