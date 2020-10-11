@@ -106,6 +106,6 @@ Port: 8086
 [buymeacoffee-icon]: https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-2.svg
 [buymeacoffee]: https://www.buymeacoffee.com/philhawthorne
 
-[grafana-version]: https://img.shields.io/badge/Grafana-6.7.4-brightgreen
-[influx-version]: https://img.shields.io/badge/Influx-1.8.0-brightgreen
-[chronograf-version]: https://img.shields.io/badge/Chronograf-1.8.4-brightgreen
+[grafana-version]: https://img.shields.io/badge/Grafana-7.2.0-brightgreen
+[influx-version]: https://img.shields.io/badge/Influx-1.8.2-brightgreen
+[chronograf-version]: https://img.shields.io/badge/Chronograf-1.8.6-brightgreen
