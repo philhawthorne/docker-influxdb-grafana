@@ -18,7 +18,15 @@ COPY system/99fixbadproxy /etc/apt/apt.conf.d/99fixbadproxy
 WORKDIR /root
 
 # Clear previous sources
-RUN rm /var/lib/apt/lists/* -vf \
+RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" && \
+    case "${dpkgArch##*-}" in \
+      amd64) ARCH='amd64';; \
+      arm64) ARCH='arm64';; \
+      armhf) ARCH='armhf';; \
+      armel) ARCH='armel';; \
+      *)     echo "Unsupported architecture: ${dpkgArch}"; exit 1;; \
+    esac && \
+    rm /var/lib/apt/lists/* -vf \
     # Base dependencies
     && apt-get -y update \
     && apt-get -y dist-upgrade \
@@ -39,14 +47,16 @@ RUN rm /var/lib/apt/lists/* -vf \
     && mkdir -p /var/log/supervisor \
     && rm -rf .profile \
     # Install InfluxDB
-    && wget https://dl.influxdata.com/influxdb/releases/influxdb_${INFLUXDB_VERSION}_amd64.deb \
-    && dpkg -i influxdb_${INFLUXDB_VERSION}_amd64.deb && rm influxdb_${INFLUXDB_VERSION}_amd64.deb \
+    && wget --no-verbose https://dl.influxdata.com/influxdb/releases/influxdb_${INFLUXDB_VERSION}_${ARCH}.deb \
+    && dpkg -i influxdb_${INFLUXDB_VERSION}_${ARCH}.deb \
+    && rm influxdb_${INFLUXDB_VERSION}_${ARCH}.deb \
     # Install Chronograf
-    && wget https://dl.influxdata.com/chronograf/releases/chronograf_${CHRONOGRAF_VERSION}_amd64.deb \
-    && dpkg -i chronograf_${CHRONOGRAF_VERSION}_amd64.deb && rm chronograf_${CHRONOGRAF_VERSION}_amd64.deb \
+    && wget https://dl.influxdata.com/chronograf/releases/chronograf_${CHRONOGRAF_VERSION}_${ARCH}.deb \
+    && dpkg -i chronograf_${CHRONOGRAF_VERSION}_${ARCH}.deb && rm chronograf_${CHRONOGRAF_VERSION}_${ARCH}.deb \
     # Install Grafana
-    && wget https://dl.grafana.com/oss/release/grafana_${GRAFANA_VERSION}_amd64.deb \
-    && dpkg -i grafana_${GRAFANA_VERSION}_amd64.deb && rm grafana_${GRAFANA_VERSION}_amd64.deb \
+    && wget https://dl.grafana.com/oss/release/grafana_${GRAFANA_VERSION}_${ARCH}.deb \
+    && dpkg -i grafana_${GRAFANA_VERSION}_${ARCH}.deb \
+    && rm grafana_${GRAFANA_VERSION}_${ARCH}.deb \
     # Cleanup
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
