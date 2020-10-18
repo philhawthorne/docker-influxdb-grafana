@@ -86,6 +86,13 @@ Basic auth and credentials must be left unflagged. Proxy is not required.
 
 Now you are ready to add your first dashboard and launch some queries on a database.
 
+### Embedding inside Home Assistant
+Home Assistant allows services to be embedded using the `panel_iframe` feature.
+
+As of late 2020, new versions of popular browsers (including Chrome and Firefox) are enforcing cookies set without HTTPs must originate from the same domain/host. This means if you have Home Assistant and Grafana running on different IP addresses/hosts in your local network, you must use HTTPs with this container. If you don't, you are unable to login to Grafana when accessing Grafana from a `panel_iframe`.
+
+You can still access Grafana without enabling HTTPs by accessing the host IP/name directly in your browser (ie not in an iFrame).
+
 ## InfluxDB
 
 ### Web Interface (Chronograf)
