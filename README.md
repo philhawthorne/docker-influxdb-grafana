@@ -111,3 +111,4 @@ Port: 8086
 [chronograf-version]: https://img.shields.io/badge/Chronograf-1.8.6-brightgreen
 
 Añado cosas en el Readme un bug
+Añado cosas en el Readme un bug
