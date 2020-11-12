@@ -109,3 +109,5 @@ Port: 8086
 [grafana-version]: https://img.shields.io/badge/Grafana-7.2.0-brightgreen
 [influx-version]: https://img.shields.io/badge/Influx-1.8.2-brightgreen
 [chronograf-version]: https://img.shields.io/badge/Chronograf-1.8.6-brightgreen
+
+Añado cosas en el Readme un bug
