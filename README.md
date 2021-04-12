@@ -19,9 +19,9 @@ The main purpose of this image is to be used to show data from a [Home Assistant
 
 | Description  | Value   |
 |--------------|---------|
-| InfluxDB     | 1.8.3   |
-| ChronoGraf   | 1.8.7   |
-| Grafana      | 7.2.1   |
+| InfluxDB     | 1.8.4   |
+| ChronoGraf   | 1.8.10  |
+| Grafana      | 7.5.3   |
 
 ## Quick Start
 
@@ -113,6 +113,6 @@ Port: 8086
 [buymeacoffee-icon]: https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-2.svg
 [buymeacoffee]: https://www.buymeacoffee.com/philhawthorne
 
-[grafana-version]: https://img.shields.io/badge/Grafana-7.2.1-brightgreen
-[influx-version]: https://img.shields.io/badge/Influx-1.8.3-brightgreen
-[chronograf-version]: https://img.shields.io/badge/Chronograf-1.8.7-brightgreen
+[grafana-version]: https://img.shields.io/badge/Grafana-7.5.3-brightgreen
+[influx-version]: https://img.shields.io/badge/Influx-1.8.4-brightgreen
+[chronograf-version]: https://img.shields.io/badge/Chronograf-1.8.10-brightgreen
