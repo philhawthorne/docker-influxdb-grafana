@@ -5,15 +5,12 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV LANG C.UTF-8
 
 # Default versions
-ENV INFLUXDB_VERSION=1.8.3
-ENV CHRONOGRAF_VERSION=1.8.7
-ENV GRAFANA_VERSION=7.2.1
+ENV INFLUXDB_VERSION=1.8.10
+ENV CHRONOGRAF_VERSION=1.9.4
+ENV GRAFANA_VERSION=7.5.16
 
 # Grafana database type
 ENV GF_DATABASE_TYPE=sqlite3
-
-# Fix bad proxy issue
-COPY system/99fixbadproxy /etc/apt/apt.conf.d/99fixbadproxy
 
 WORKDIR /root
 
@@ -42,8 +39,6 @@ RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" && \
         supervisor \
         wget \
         gnupg \
-    && curl -sL https://deb.nodesource.com/setup_10.x | bash - \
-    && apt-get install -y nodejs \
     && mkdir -p /var/log/supervisor \
     && rm -rf .profile \
     # Install InfluxDB
