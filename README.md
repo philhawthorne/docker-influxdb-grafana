@@ -19,9 +19,9 @@ The main purpose of this image is to be used to show data from a [Home Assistant
 
 | Description  | Value   |
 |--------------|---------|
-| InfluxDB     | 1.8.2   |
-| ChronoGraf   | 1.8.6   |
-| Grafana      | 7.2.0   |
+| InfluxDB     | 1.8.10  |
+| ChronoGraf   | 1.9.4   |
+| Grafana      | 7.5.17  |
 
 ## Quick Start
 
@@ -86,6 +86,13 @@ Basic auth and credentials must be left unflagged. Proxy is not required.
 
 Now you are ready to add your first dashboard and launch some queries on a database.
 
+### Embedding inside Home Assistant
+Home Assistant allows services to be embedded using the `panel_iframe` feature.
+
+As of late 2020, new versions of popular browsers (including Chrome and Firefox) are enforcing cookies set without HTTPs must originate from the same domain/host. This means if you have Home Assistant and Grafana running on different IP addresses/hosts in your local network, you must use HTTPs with this container. If you don't, you are unable to login to Grafana when accessing Grafana from a `panel_iframe`.
+
+You can still access Grafana without enabling HTTPs by accessing the host IP/name directly in your browser (ie not in an iFrame).
+
 ## InfluxDB
 
 ### Web Interface (Chronograf)
@@ -106,6 +113,6 @@ Port: 8086
 [buymeacoffee-icon]: https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-2.svg
 [buymeacoffee]: https://www.buymeacoffee.com/philhawthorne
 
-[grafana-version]: https://img.shields.io/badge/Grafana-7.2.0-brightgreen
-[influx-version]: https://img.shields.io/badge/Influx-1.8.2-brightgreen
-[chronograf-version]: https://img.shields.io/badge/Chronograf-1.8.6-brightgreen
+[grafana-version]: https://img.shields.io/badge/Grafana-7.5.16-brightgreen
+[influx-version]: https://img.shields.io/badge/Influx-1.8.10-brightgreen
+[chronograf-version]: https://img.shields.io/badge/Chronograf-1.9.4-brightgreen
