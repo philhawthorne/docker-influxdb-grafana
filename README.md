@@ -21,7 +21,7 @@ The main purpose of this image is to be used to show data from a [Home Assistant
 |--------------|---------|
 | InfluxDB     | 1.8.10  |
 | ChronoGraf   | 1.9.4   |
-| Grafana      | 7.5.16  |
+| Grafana      | 7.5.17  |
 
 ## Quick Start
 
